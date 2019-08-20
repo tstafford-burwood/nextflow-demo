@@ -1,9 +1,9 @@
 params.outdir = 'results'
 
-include 'index' params(params)
-include 'quant' params(params)
-include 'fastqc' params(params)
-include 'multiqc' params(params)
+include './index' params(params)
+include './quant' params(params)
+include './fastqc' params(params)
+include './multiqc' params(params)
 
 workflow RNASEQ {
   get:

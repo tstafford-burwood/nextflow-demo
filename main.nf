@@ -51,7 +51,7 @@ log.info """\
  """
 
 // import modules
-include 'modules/rnaseq' params(params)
+include './modules/rnaseq' params(params)
 
 /* 
  * main script flow
