@@ -1,12 +1,12 @@
 params.outdir = 'results'
 
-include './index' params(params)
-include './quant' params(params)
-include './fastqc' params(params)
-include './multiqc' params(params)
+include { INDEX } from './index'
+include { QUANT } from './quant'
+include { FASTQC } from './fastqc'
+include { MULTIQC } from './multiqc'
 
 workflow RNASEQ {
-  get:
+  take:
     transcriptome
     read_pairs_ch
     multiqc_config

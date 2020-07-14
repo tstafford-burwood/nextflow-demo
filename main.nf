@@ -30,7 +30,7 @@
 /* 
  * enables modules 
  */
-nextflow.preview.dsl = 2
+nextflow.enable.dsl = 2
 
 /*
  * Default pipeline parameters. They can be overriden on the command line eg.
@@ -51,7 +51,7 @@ log.info """\
  """
 
 // import modules
-include './modules/rnaseq' params(params)
+include { RNASEQ } from './modules/rnaseq'
 
 /* 
  * main script flow
