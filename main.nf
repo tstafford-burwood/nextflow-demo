@@ -44,13 +44,15 @@ log.info """\
 
 // import modules
 include { RNASEQ } from './modules/rnaseq'
+include { MULTIQC } from './modules/multiqc'
 
 /* 
  * main script flow
  */
 workflow {
   read_pairs_ch = Channel.fromFilePairs( params.reads, checkIfExists: true ) 
-  RNASEQ( params.ref1, read_pairs_ch, params.multiqc)
+  RNASEQ( params.ref1, read_pairs_ch )
+  MULTIQC( RNASEQ.out, params.multiqc )
 }
 
 /* 
