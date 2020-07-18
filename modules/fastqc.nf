@@ -6,10 +6,10 @@ process FASTQC {
     publishDir params.outdir
 
     input:
-    tuple sample_id, path(reads)
+    tuple val(sample_id), path(reads)
 
     output:
-    file("fastqc_${sample_id}_logs") 
+    path "fastqc_${sample_id}_logs" 
 
     script:
     """

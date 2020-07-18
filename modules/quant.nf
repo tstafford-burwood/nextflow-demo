@@ -4,10 +4,10 @@ process QUANT {
 
     input:
     path index 
-    tuple pair_id, path(reads) 
+    tuple val(pair_id), path(reads) 
 
     output:
-    path(pair_id) 
+    path pair_id 
 
     script:
     """
