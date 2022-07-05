@@ -34,8 +34,31 @@
                     "type": "string",
                     "fa_icon": "fas fa-folder-open",
                     "default": "${projectDir}/multiqc"
+                },
+                "enum_required": {
+                    "type": "string",
+                    "default": "enum_1",
+                    "enum": [
+                        "enum_1",
+                        "enum_2",
+                        "enum_3"
+                    ],
+                    "description": "Enum parameter that is required"
+                },
+                "enum_not_required": {
+                    "type": "string",
+                    "default": "enum_1",
+                    "enum": [
+                        "enum_1",
+                        "enum_2",
+                        "enum_3"
+                    ],
+                    "description": "Enum parameter that is not required"
                 }
-            }
+            },
+            "required": [
+                "enum_required"
+            ]
         }
     },
     "allOf": [
