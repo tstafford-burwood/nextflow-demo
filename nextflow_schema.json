@@ -79,13 +79,13 @@
         }
     ],
     "properties": {
-        "reads": {
+        "params1": {
             "type": "string"
         },
-        "transcriptome": {
+        "params2": {
             "type": "string"
         },
-        "multiqc": {
+        "params3": {
             "type": "string"
         }
     }
