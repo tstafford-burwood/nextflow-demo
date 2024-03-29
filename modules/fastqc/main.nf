@@ -1,18 +1,18 @@
 params.outdir = 'results'
 
 process FASTQC {
-    tag "FASTQC on $sample_id"
+    tag "FASTQC on $sample.id"
     conda 'fastqc=0.12.1'
     publishDir params.outdir, mode:'copy'
 
     input:
-    tuple val(sample_id), path(reads)
+    Sample sample
 
     output:
-    path "fastqc_${sample_id}_logs" 
+    Path logs = path("fastqc_${sample.id}_logs")
 
     script:
     """
-    fastqc.sh "$sample_id" "$reads"
+    fastqc.sh "$sample.id" "$sample.reads"
     """
 }
