@@ -1,15 +1,16 @@
-params.outdir = 'results'
 
 process MULTIQC {
     conda 'multiqc=1.17'
-    publishDir params.outdir, mode:'copy'
 
     input:
-    path('*') 
-    path(config) 
+    List<Path> inputs
+    Path config 
 
     output:
-    path('multiqc_report.html')
+    Path report = path('multiqc_report.html')
+
+    publish:
+    report >> 'multiqc'
 
     script:
     """

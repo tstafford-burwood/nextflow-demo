@@ -1,17 +1,23 @@
 
 process QUANT {
-    tag "$pair_id"
+    tag "$pair.id"
     conda 'salmon=1.10.2'
 
     input:
-    path index 
-    tuple val(pair_id), path(reads) 
+    Path index
+    Tuple2<String,List<Path>> pair
 
     output:
-    path pair_id 
+    Path quant = path(pair.id) 
 
     script:
     """
-    salmon quant --threads $task.cpus --libType=U -i $index -1 ${reads[0]} -2 ${reads[1]} -o $pair_id
+    salmon quant \
+        --threads $task.cpus \
+        --libType=U \
+        -i $index \
+        -1 ${pair.reads[0]} \
+        -2 ${pair.reads[1]} \
+        -o $pair.id
     """
 }
