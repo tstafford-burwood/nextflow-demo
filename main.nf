@@ -25,6 +25,8 @@
  */
 nextflow.enable.dsl = 2
 
+nextflow.preview.output = true
+
 /*
  * Default pipeline parameters. They can be overriden on the command line eg.
  * given `params.foo` specify on the run command line `--foo some_value`.
@@ -56,9 +58,7 @@ workflow {
   MULTIQC( RNASEQ.out, params.multiqc )
 }
 
-/* 
- * completion handler
- */
-workflow.onComplete {
-	log.info ( workflow.success ? "\nDone! Open the following report in your browser --> $params.outdir/multiqc_report.html\n" : "Oops .. something went wrong" )
+output {
+  directory params.outdir
+  mode 'copy'
 }
