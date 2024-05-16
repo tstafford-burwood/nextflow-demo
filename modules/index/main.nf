@@ -4,10 +4,10 @@ process INDEX {
     conda 'salmon=1.10.2'
     
     input:
-    path transcriptome 
+    Path transcriptome
 
     output:
-    path 'index' 
+    Path index = path('index')
 
     script:
     """

@@ -5,11 +5,11 @@ process MULTIQC {
     publishDir params.outdir, mode:'copy'
 
     input:
-    path('*') 
-    path(config) 
+    List<Path> logs
+    Path config
 
     output:
-    path('multiqc_report.html')
+    Path report = path('multiqc_report.html')
 
     script:
     """
