@@ -3,11 +3,11 @@ process MULTIQC {
     conda 'multiqc=1.17'
 
     input:
-    List<Path> inputs
-    Path config 
+    inputs  : List<Path>
+    config  : Path 
 
     output:
-    Path report = path('multiqc_report.html')
+    report  : Path = path('multiqc_report.html')
 
     publish:
     report >> 'multiqc'

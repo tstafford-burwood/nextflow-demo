@@ -47,15 +47,7 @@ workflow {
   }
 }
 
-publish {
+output {
   directory params.outdir
   mode 'copy'
-
-  'fastqc' {
-    path '.'
-  }
-
-  'multiqc' {
-    path '.'
-  }
 }
