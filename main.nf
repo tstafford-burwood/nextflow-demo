@@ -12,7 +12,7 @@
 
 params.reads = "$baseDir/data/ggal/ggal_gut_{1,2}.fq"
 params.transcriptome = "$baseDir/data/ggal/ggal_1_48850000_49020000.Ggal71.500bpflank.fa"
-params.outdir = "gs://nextflow-demo-bucket/results"
+params.outdir = "results"
 params.multiqc = "$baseDir/multiqc"
 
 log.info """\
